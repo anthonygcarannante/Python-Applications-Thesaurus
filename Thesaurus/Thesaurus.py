@@ -13,6 +13,14 @@ def translate(w):
     if w in data:
         return data[w]
     
+    # If word is a proper noun (i.e., it's in sentence case)
+    elif w.title() in data:
+        return data[w.title()]
+    
+    # If a word is an acronym (i.e., it's in all caps)
+    elif w.upper() in data:
+        return data[w.upper()]
+
     # If the word is close in spelling to a word in the data file, ask the user if they meant the most closely related word
     elif len(get_close_matches(w, data.keys())) > 0:
         w_corr = get_close_matches(w, data.keys())[0]
@@ -31,5 +39,14 @@ def translate(w):
 # User input to look up a word
 word = input("Enter word: ")
 
-# Run the word through the dictionary function
-print(translate(word))
+# Store word into a variable adn call the translate function
+output = translate(word)
+
+# Print the results
+# If the output is a list, print all values in the list (i.e., each definition)
+if type(output) == list:
+    for item in output:
+        print(item)
+# If the word cannot be found, print just the output, not a list.
+else:
+    print(output)
