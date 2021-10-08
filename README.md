@@ -1,6 +1,4 @@
-# Real-World-Python-Applications
-
-This repo is dedicated to a UDEMY course that teaches methods to build 10 real world applications with Python. 
+# Python-Applications-Thesaurus
 
 1. Thesaurus (AGC 13JUN2021)
 
